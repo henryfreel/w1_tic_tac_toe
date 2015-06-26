@@ -1,4 +1,4 @@
-# Tic Tac Toe - Weekend Lab
+# Tic Tac Toe - Weekend Lab - this is now mine!
 
 **Objective:** Build a tic-tac-toe game in HTML and pure JavaScript.
 
