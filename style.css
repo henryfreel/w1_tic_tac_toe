@@ -1,74 +1,107 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
 #board {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 #turn {
 	text-align: center;
 }
 
-#reset-button:hover {
-	background-color: yellow;
-}
-
-.box {
-  height: 150px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 64px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-#box-1 {
-	border-right: 8px solid #f2f4f2;
-	border-bottom: 8px solid #f2f4f2;
-}
-
-#box-2 {
-	border-bottom: 8px solid #f2f4f2;
-}
-
-#box-3 {
-	border-left: 8px solid #f2f4f2;
-	border-bottom: 8px solid #f2f4f2;
-}
-
-#box-4 {
-	border-right: 8px solid #f2f4f2;
-}
-
-#box-6 {
-	border-left: 8px solid #f2f4f2;
-}
-
-#box-7 {
-	border-top: 8px solid #f2f4f2;
-	border-right: 8px solid #f2f4f2;
-}
-
-#box-8 {
-	border-top: 8px solid #f2f4f2;
-}
-
-#box-9 {
-	border-top: 8px solid #f2f4f2;
-	border-left: 8px solid #f2f4f2;
-}
-
-.box:hover {
-	background-color: red;
-}
-
-.box:active {
-	background-color: purple;
-}
-
 #reset-button {
-	background-color: red;
+	height: 40px;
+	background-color: #F5A623;
+	color: white;
+	font-weight: 600;
+	font-size: 16px;
+	text-shadow: 1px 1px rgba(0,0,0,0.5);
 	text-align: center;
 	cursor: pointer;
 	display: none;
+	border-radius: 2px;
+	border: 1px solid #CE8C20;
+	margin-top: 80px;
+	padding-top: 8px;
+
+}
+
+#reset-button:hover {
+	background-color: #CE8C20;
+}
+
+.box {
+  height: 180px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 124px;
+  font-family: 'Indie Flower', cursive;
+}
+
+#box-1 {
+	border-right: 8px solid #ccc;
+	border-bottom: 8px solid #ccc;
+}
+
+#box-2 {
+	border-bottom: 8px solid #ccc;
+}
+
+#box-3 {
+	border-left: 8px solid #ccc;
+	border-bottom: 8px solid #ccc;
+}
+
+#box-4 {
+	border-right: 8px solid #ccc;
+}
+
+#box-6 {
+	border-left: 8px solid #ccc;
+}
+
+#box-7 {
+	border-top: 8px solid #ccc;
+	border-right: 8px solid #ccc;
+}
+
+#box-8 {
+	border-top: 8px solid #ccc;
+}
+
+#box-9 {
+	border-top: 8px solid #ccc;
+	border-left: 8px solid #ccc;
+}
+
+.box:hover {
+	background-color: #f2f4f2;
+}
+
+.box:active {
+	background-color: #111;
 }
 
 .winner {
 	background-color: gold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

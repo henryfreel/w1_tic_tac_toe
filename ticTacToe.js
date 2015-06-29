@@ -83,23 +83,23 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	function winsRow(player) {
 		if (allThree(player, boxValue(1), boxValue(2), boxValue(3))) {
-			box1.style.backgroundColor = "gold";
-			box2.style.backgroundColor = "gold";
-			box3.style.backgroundColor = "gold";
+			box1.style.color = "#87E026";
+			box2.style.color = "#87E026";
+			box3.style.color = "#87E026";
 			console.log("First Row Won");
 			return true;
 		} else if (allThree(player, boxValue(4), boxValue(5), boxValue(6))) {
 			// box4.className = "col-xs-4 box winner";
-			box4.style.backgroundColor = "gold";
-			box5.style.backgroundColor = "gold";
-			box6.style.backgroundColor = "gold";
+			box4.style.color = "#87E026";
+			box5.style.color = "#87E026";
+			box6.style.color = "#87E026";
 			console.log("Second Row Won");
 			console.log(box4.className)
 			return true;
 		} else if (allThree(player, boxValue(7), boxValue(8), boxValue(9))) {
-			box7.style.backgroundColor = "gold";
-			box8.style.backgroundColor = "gold";
-			box9.style.backgroundColor = "gold";
+			box7.style.color = "#87E026";
+			box8.style.color = "#87E026";
+			box9.style.color = "#87E026";
 			console.log("Last Row Won");
 			return true;
 		}
@@ -107,21 +107,21 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	function winsColumn(player) {
 		if (allThree(player, boxValue(1), boxValue(4), boxValue(7))) {
-			box1.style.backgroundColor = "gold";
-			box4.style.backgroundColor = "gold";
-			box7.style.backgroundColor = "gold";
+			box1.style.color = "#87E026";
+			box4.style.color = "#87E026";
+			box7.style.color = "#87E026";
 			console.log("First Column Won");
 			return true;
 		} else if (allThree(player, boxValue(2), boxValue(5), boxValue(8))) {
-			box2.style.backgroundColor = "gold";
-			box5.style.backgroundColor = "gold";
-			box8.style.backgroundColor = "gold";
+			box2.style.color = "#87E026";
+			box5.style.color = "#87E026";
+			box8.style.color = "#87E026";
 			console.log("Second Column Won");
 			return true;
 		} else if (allThree(player, boxValue(3), boxValue(6), boxValue(9))) {
-			box3.style.backgroundColor = "gold";
-			box6.style.backgroundColor = "gold";
-			box9.style.backgroundColor = "gold";
+			box3.style.color = "#87E026";
+			box6.style.color = "#87E026";
+			box9.style.color = "#87E026";
 			console.log("Last Column Won");
 			return true;
 		}
@@ -129,15 +129,15 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	function winsDiagonal(player) {
 		if (allThree(player, boxValue(1), boxValue(5), boxValue(9))) {
-			box1.style.backgroundColor = "gold";
-			box5.style.backgroundColor = "gold";
-			box9.style.backgroundColor = "gold";
+			box1.style.color = "#87E026";
+			box5.style.color = "#87E026";
+			box9.style.color = "#87E026";
 			console.log("Back-slash Diagonal Won");
 			return true;
 		} else if (allThree(player, boxValue(3), boxValue(5), boxValue(7))) {
-			box3.style.backgroundColor = "gold";
-			box5.style.backgroundColor = "gold";
-			box7.style.backgroundColor = "gold";
+			box3.style.color = "#87E026";
+			box5.style.color = "#87E026";
+			box7.style.color = "#87E026";
 			console.log("Forward-slash Diagonal Won");
 			return true;
 		}
@@ -204,11 +204,16 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Reset The Board
 	resetButton.addEventListener("click", function(event) {
+
+		resetButton.style.display = "none";
+
 		for (i = 0; i < boxes.length; i ++) {
 			var box = boxes[i];
 			box.innerText = "";
+			box.style.color = "#000";
 			box.style.backgroundColor = "#fff";
 			numOfMoves = 0;
+			box.style.cursor = "pointer";
 		}
 
 		if (move === "X") {
