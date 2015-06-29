@@ -2,7 +2,35 @@
   margin-top: 10px;
 }
 
+#turn {
+	text-align: center;
+}
+
+#reset-button:hover {
+	background-color: yellow;
+}
+
 .box {
   border: 1px solid black;
   height: 150px;
+  cursor: pointer;
+}
+
+.filled {
+	border: 1px solid #fff;
+}
+
+.box:hover {
+	background-color: red;
+}
+
+.box:active {
+	background-color: purple;
+}
+
+#reset-button {
+	background-color: red;
+	text-align: center;
+	cursor: pointer;
+	display: none;
 }

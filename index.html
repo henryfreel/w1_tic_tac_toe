@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- link to stylesheet (always require after Bootstrap) -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- link to javascript file -->
+    <script src="ticTacToe.js"></script>
 
     <title>Tic Tac Toe</title>
   </head>
   <body>
+
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
@@ -23,8 +26,10 @@
           <hr>
         </div>
       </div>
-      <div class="row">
 
+      <div id="turn" class="col-md-2 col-md-offset-5">It is X's turn to go</div>
+
+      <div class="row">
         <!-- a column represents our game board -->
         <!-- the `offset` class helps us center the board -->
         <div class="col-md-6 col-md-offset-3" id="board">
@@ -32,24 +37,28 @@
           <!-- you can put rows inside of columns! -->
           <!-- our board has 3 rows, each with 3 columns inside -->
           <div class="row">
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
+            <div id="box-1" class="col-xs-4 box"></div>
+            <div id="box-2" class="col-xs-4 box"></div>
+            <div id="box-3" class="col-xs-4 box"></div>
           </div>
 
           <div class="row">
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
+            <div id="box-4" class="col-xs-4 box"></div>
+            <div id="box-5" class="col-xs-4 box"></div>
+            <div id="box-6" class="col-xs-4 box"></div>
           </div>
 
           <div class="row">
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
-            <div class="col-xs-4 box"></div>
+            <div id="box-7" class="col-xs-4 box"></div>
+            <div id="box-8" class="col-xs-4 box"></div>
+            <div id="box-9" class="col-xs-4 box"></div>
           </div>
         </div>
       </div>
+
+      <div id="reset-button" class="col-md-2 col-md-offset-5">Reset Board</div>
+
     </div>
+
   </body>
 </html>
