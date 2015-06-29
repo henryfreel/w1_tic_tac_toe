@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Define Variables
 	var numOfMoves = 0;
-	var move = "X"
+	var move = "O"
 	var boxes = document.querySelectorAll(".box");
 	var resetButton = document.getElementById("reset-button");
 	var turn = document.getElementById("turn");
@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	var switchMove = function() {
 
 		if (move === "X") {
-			return move = "Y"
+			return move = "O"
 		} else {
 			return move = "X"
 		}
@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	// Change Appearence when clicked
 	var switchColor = function() {
 
-		if (move === "Y") {
+		if (move === "O") {
 			return "lightblue";
 		} else {
 			return "pink";
@@ -60,25 +60,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	// Check for winner
-	// function getWinner() {
-	// 	if (winnerIsX()) {
-	// 		return "X";
-	// 	} else if (winnerIsO()) {
-	// 		return "Y";
-	// 	}
-	// }
-
-	// function winnerIsX() {
-	// 	if (xWinsRow() || xWinsColumn() || xWinsDiagonal()) {
-	// 		return true;
-	// 	}
-	// }
-
-	// function xWinsRow() {
-	// 	If ((box1.innerText != "") )
-	// }
-
 	function boxValue(value){
 		switch(value) {
 			case 1 : return box1.innerText;
@@ -90,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			case 7 : return box7.innerText;
 			case 8 : return box8.innerText;
 			case 9 : return box9.innerText;
-			default : return null
+			default : return null;
 		}
 	}
 
@@ -101,11 +82,78 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function winsRow(player) {
-		if (allThree(player, boxValue(1), boxValue(2), boxValue(3)) ||
-			allThree(player, boxValue(1), boxValue(2), boxValue(3)) ||
-			allThree(player, boxValue(1), boxValue(2), boxValue(3))) {
-
+		if (allThree(player, boxValue(1), boxValue(2), boxValue(3))) {
+			box1.style.backgroundColor = "gold";
+			box2.style.backgroundColor = "gold";
+			box3.style.backgroundColor = "gold";
+			console.log("First Row Won");
 			return true;
+		} else if (allThree(player, boxValue(4), boxValue(5), boxValue(6))) {
+			// box4.className = "col-xs-4 box winner";
+			box4.style.backgroundColor = "gold";
+			box5.style.backgroundColor = "gold";
+			box6.style.backgroundColor = "gold";
+			console.log("Second Row Won");
+			console.log(box4.className)
+			return true;
+		} else if (allThree(player, boxValue(7), boxValue(8), boxValue(9))) {
+			box7.style.backgroundColor = "gold";
+			box8.style.backgroundColor = "gold";
+			box9.style.backgroundColor = "gold";
+			console.log("Last Row Won");
+			return true;
+		}
+	}
+
+	function winsColumn(player) {
+		if (allThree(player, boxValue(1), boxValue(4), boxValue(7))) {
+			box1.style.backgroundColor = "gold";
+			box4.style.backgroundColor = "gold";
+			box7.style.backgroundColor = "gold";
+			console.log("First Column Won");
+			return true;
+		} else if (allThree(player, boxValue(2), boxValue(5), boxValue(8))) {
+			box2.style.backgroundColor = "gold";
+			box5.style.backgroundColor = "gold";
+			box8.style.backgroundColor = "gold";
+			console.log("Second Column Won");
+			return true;
+		} else if (allThree(player, boxValue(3), boxValue(6), boxValue(9))) {
+			box3.style.backgroundColor = "gold";
+			box6.style.backgroundColor = "gold";
+			box9.style.backgroundColor = "gold";
+			console.log("Last Column Won");
+			return true;
+		}
+	}
+
+	function winsDiagonal(player) {
+		if (allThree(player, boxValue(1), boxValue(5), boxValue(9))) {
+			box1.style.backgroundColor = "gold";
+			box5.style.backgroundColor = "gold";
+			box9.style.backgroundColor = "gold";
+			console.log("Back-slash Diagonal Won");
+			return true;
+		} else if (allThree(player, boxValue(3), boxValue(5), boxValue(7))) {
+			box3.style.backgroundColor = "gold";
+			box5.style.backgroundColor = "gold";
+			box7.style.backgroundColor = "gold";
+			console.log("Forward-slash Diagonal Won");
+			return true;
+		}
+	}
+
+	function isWinner(player) {
+		if (winsRow(player) || winsColumn(player) || winsDiagonal(player)) {
+			return true;
+		}
+	}
+
+	function getWinner() {
+		if (isWinner("X")) {
+			return "X";
+		} else if (isWinner("O")) {
+			return "O";
 		}
 	}
 
@@ -117,24 +165,36 @@ window.addEventListener('DOMContentLoaded', function() {
   		box.addEventListener("click", function(event) {
   			event.preventDefault();
 
-  			if (move === "Y") {
+  			if (move === "O") {
+  				turn.innerText = "It is O's turn to go";
+  			} else if (move === "X") {
   				turn.innerText = "It is X's turn to go";
-  			} else {
-  				turn.innerText = "It is Y's turn to go";
   			}
 
   			// Change the boxes when clicked
   			if (this.innerText === "") {
 
   				this.innerText = switchMove();
-  				this.style.backgroundColor = switchColor();
+  				// this.style.backgroundColor = switchColor();
   				console.log("click " + move);
   				numOfMoves += 1;
 
-  				//Check if game is over
-  				if (checkAll()) {
+  				// Declare Winner
+
+  				if (isWinner("X") || isWinner("O")) {
   					resetButton.style.display = "block";
-  					turn.innerText = ("The winner is ")
+  					turn.innerText = ("The winner is " + getWinner());
+  					for (i = 0; i < boxes.length; i ++) {
+  						var box = boxes[i]
+  						box.style.cursor = "default";
+  						// box.removeEventListener("click", funtion(event) { 
+  							// event.preventDefault();
+  						// })
+  					}
+  				// Tie Game
+  				} else if (numOfMoves === 9) {
+  					turn.innerText = ("Tie Game, play again");
+  					resetButton.style.display = "block";
   				}
 
   			}
@@ -150,6 +210,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			box.style.backgroundColor = "#fff";
 			numOfMoves = 0;
 		}
+
+		if (move === "X") {
+  				turn.innerText = "It is O's turn to go";
+  			} else if (move === "Y") {
+  				turn.innerText = "It is X's turn to go";
+  		}
+
 	})
 
 

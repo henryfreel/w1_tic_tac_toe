@@ -11,13 +11,47 @@
 }
 
 .box {
-  border: 1px solid black;
   height: 150px;
   cursor: pointer;
+  text-align: center;
+  font-size: 64px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.filled {
-	border: 1px solid #fff;
+#box-1 {
+	border-right: 8px solid #f2f4f2;
+	border-bottom: 8px solid #f2f4f2;
+}
+
+#box-2 {
+	border-bottom: 8px solid #f2f4f2;
+}
+
+#box-3 {
+	border-left: 8px solid #f2f4f2;
+	border-bottom: 8px solid #f2f4f2;
+}
+
+#box-4 {
+	border-right: 8px solid #f2f4f2;
+}
+
+#box-6 {
+	border-left: 8px solid #f2f4f2;
+}
+
+#box-7 {
+	border-top: 8px solid #f2f4f2;
+	border-right: 8px solid #f2f4f2;
+}
+
+#box-8 {
+	border-top: 8px solid #f2f4f2;
+}
+
+#box-9 {
+	border-top: 8px solid #f2f4f2;
+	border-left: 8px solid #f2f4f2;
 }
 
 .box:hover {
@@ -33,4 +67,8 @@
 	text-align: center;
 	cursor: pointer;
 	display: none;
+}
+
+.winner {
+	background-color: gold;
 }
