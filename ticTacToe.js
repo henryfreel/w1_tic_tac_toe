@@ -1,12 +1,12 @@
 // wait for the DOM to finish loading
-window.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
 
 	// Define Variables
 	var numOfMoves = 0;
 	var move = "O"
-	var boxes = document.querySelectorAll(".box");
-	var resetButton = document.getElementById("reset-button");
-	var turn = document.getElementById("turn");
+	var boxes = $(".box");
+	var resetButton = $("reset-button");
+	var turn = $("turn");
 
 	//Define Boxes
 	var box1 = document.getElementById("box-1");
@@ -180,9 +180,10 @@ window.addEventListener('DOMContentLoaded', function() {
   				numOfMoves += 1;
 
   				// Declare Winner
-
   				if (isWinner("X") || isWinner("O")) {
-  					resetButton.style.display = "block";
+  					
+  					console.log("-> Blah")
+  					console.log(resetButton);
   					turn.innerText = ("The winner is " + getWinner());
   					for (i = 0; i < boxes.length; i ++) {
   						var box = boxes[i]
@@ -194,7 +195,7 @@ window.addEventListener('DOMContentLoaded', function() {
   				// Tie Game
   				} else if (numOfMoves === 9) {
   					turn.innerText = ("Tie Game, play again");
-  					resetButton.style.display = "block";
+  					resetButton.css("display", "block");
   				}
 
   			}
@@ -202,10 +203,12 @@ window.addEventListener('DOMContentLoaded', function() {
   		});
 	}
 
-	// Reset The Board
-	resetButton.addEventListener("click", function(event) {
+	resetButton.css("background-color","red");
 
-		resetButton.style.display = "none";
+	// Reset The Board
+	resetButton.click(function(event) {
+
+		resetButton.css("display", "none");
 
 		for (i = 0; i < boxes.length; i ++) {
 			var box = boxes[i];
